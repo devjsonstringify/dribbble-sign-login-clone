@@ -6,6 +6,9 @@ declare module '@mui/material/styles' {
     dribbleAccents: {
       brown: string
       pink: string
+      textPink: string
+      yellow: string
+      textYellow: string
     }
   }
   // allow configuration using `createTheme`
@@ -13,6 +16,9 @@ declare module '@mui/material/styles' {
     dribbleAccents?: {
       brown?: string
       pink?: string
+      textPink?: string
+      yellow?: string
+      textYellow?: string
     }
   }
 }
@@ -33,6 +39,9 @@ const theme = createTheme({
   dribbleAccents: {
     brown: '#865c6c',
     pink: '#F1CDD7',
+    textPink: '#865c6c',
+    yellow: '#f2d184',
+    textYellow: '#866118',
   },
 })
 
