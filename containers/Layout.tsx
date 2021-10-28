@@ -4,8 +4,9 @@ import Link from '@mui/material/Link'
 import Paper from '@mui/material/Paper'
 import { styled, useTheme } from '@mui/material/styles'
 import Grid from '@mui/material/Grid'
-import { Typography } from '@mui/material'
+import Typography from '@mui/material/Typography'
 import Logo from '../components/Logo'
+import DynamicImage from '../components/DynamicImage'
 
 type LayoutProps = {
   children: React.ReactNode
@@ -76,22 +77,12 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
                 paddingBottom: '2rem',
               }}
             >
-              <LeftBgImage />
-              <Typography
-                sx={{
-                  paddingLeft: '4rem',
-                  color: theme?.dribbleAccents?.brown,
-                }}
-              >
-                Art by{' '}
-                <Link
-                  href="https://dribbble.com/karicca"
-                  sx={{ color: theme?.dribbleAccents?.brown }}
-                >
-                  {' '}
-                  Irina Valeeva
-                </Link>
-              </Typography>
+              <DynamicImage
+                href="https://dribbble.com/karicca"
+                artist="Irina Valeeva"
+                accent={theme?.dribbleAccents?.brown}
+                bgImage="url(/assets/procrastination.jpg)"
+              />
             </Box>
           </Box>
         </Grid>
