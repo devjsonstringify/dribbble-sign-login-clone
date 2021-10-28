@@ -6,13 +6,14 @@ import { styled, useTheme } from '@mui/material/styles'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import Logo from '../components/Logo'
-import DynamicImage from '../components/DynamicImage'
+import LeftSidebar from './LeftSidebar'
 
 type LayoutProps = {
   children: React.ReactNode
 }
 const Layout = ({ children }: LayoutProps): JSX.Element => {
   const theme = useTheme()
+  const [isSignedView, setIsSignedView] = React.useState<boolean>(true)
 
   return (
     <Box sx={{ height: '100%' }}>
@@ -77,12 +78,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
                 paddingBottom: '2rem',
               }}
             >
-              <DynamicImage
-                href="https://dribbble.com/karicca"
-                artist="Irina Valeeva"
-                accent={theme?.dribbleAccents?.brown}
-                bgImage="url(/assets/procrastination.jpg)"
-              />
+              <LeftSidebar isSignedView={isSignedView} />
             </Box>
           </Box>
         </Grid>
@@ -93,6 +89,10 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
               height: '100%',
             }}
           >
+            <button onClick={() => setIsSignedView((prev) => !prev)}>
+              click me{' '}
+            </button>
+            <pre>{JSON.stringify(isSignedView, null, 2)}</pre>
             {children}
           </Box>
         </Grid>
