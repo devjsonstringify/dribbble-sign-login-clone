@@ -30,7 +30,17 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
               height: '100%',
             }}
           >
-            <Box sx={{ padding: '4rem 4rem 0' }}>
+            <Box
+              sx={{
+                padding: {
+                  xs: '3rem 2rem 0',
+                  sm: '3rem 3rem 0',
+                  md: '3rem 3rem 0',
+                  lg: '4rem 4rem 0',
+                  xl: '4rem 4rem 0',
+                },
+              }}
+            >
               <Box
                 sx={{
                   height: 'auto',
