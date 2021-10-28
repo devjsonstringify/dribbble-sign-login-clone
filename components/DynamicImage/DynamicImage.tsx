@@ -26,7 +26,7 @@ const DynamicImage = ({
           flexGrow: 1,
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          backgroundSize: 'contain',
+          backgroundSize: 'cover',
         }}
       />
       <Typography
