@@ -1,12 +1,9 @@
 import * as React from 'react'
 import Box from '@mui/material/Box'
-import Link from '@mui/material/Link'
-import Paper from '@mui/material/Paper'
 import { styled, useTheme } from '@mui/material/styles'
 import Grid from '@mui/material/Grid'
-import Typography from '@mui/material/Typography'
-import Logo from '../components/Logo'
 import LeftSidebar from './LeftSidebar'
+import LeftSidebarHeader from '../components/LeftSidebarHeader'
 
 type LayoutProps = {
   children: React.ReactNode
@@ -14,6 +11,9 @@ type LayoutProps = {
 const Layout = ({ children }: LayoutProps): JSX.Element => {
   const theme = useTheme()
   const [isSignedView, setIsSignedView] = React.useState<boolean>(true)
+  const accent = isSignedView
+    ? theme?.dribbleAccents?.pink
+    : theme?.dribbleAccents?.yellow
 
   return (
     <Box sx={{ height: '100%' }}>
@@ -25,7 +25,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
         >
           <Box
             sx={{
-              bgcolor: theme?.dribbleAccents?.pink,
+              bgcolor: accent,
               display: 'grid',
               gridTemplateRows: '1fr 2fr',
               justifyContent: 'space-between',
@@ -43,31 +43,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
                 },
               }}
             >
-              <Box
-                sx={{
-                  height: 'auto',
-                  minWidth: '3.75rem',
-                  maxWidth: '5.625rem',
-                  marginBottom: '1.875rem',
-                }}
-              >
-                <Link href="https://dribbble.com/">
-                  <Logo
-                    ariaLabel="dribble-logo"
-                    fill={theme?.dribbleAccents?.brown}
-                    role="image"
-                  />
-                </Link>
-              </Box>
-              <Typography
-                variant="h4"
-                sx={{
-                  fontWeight: 700,
-                  color: theme?.dribbleAccents?.brown,
-                }}
-              >
-                Discover the world’s top Designers & Creatives.
-              </Typography>
+              <LeftSidebarHeader isSignedView={isSignedView} />
             </Box>
             <Box
               sx={{

@@ -14,8 +14,8 @@ const LeftSidebar = ({ isSignedView }: LeftSidebarProps): JSX.Element => {
     : 'url(/assets/Peter_Tarka_illustration.webp)'
 
   const accent = isSignedView
-    ? theme?.dribbleAccents?.brown
-    : theme?.dribbleAccents?.pink
+    ? theme?.dribbleAccents?.textPink
+    : theme?.dribbleAccents?.textYellow
 
   const href = isSignedView
     ? 'https://dribbble.com/karicca'
