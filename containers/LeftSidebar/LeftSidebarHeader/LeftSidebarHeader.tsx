@@ -4,7 +4,7 @@ import Link from '@mui/material/Link'
 import Logo from '../../../components/Logo'
 import Typography from '@mui/material/Typography'
 import { useTheme } from '@mui/material/styles'
-import LeftSidebarCtx from '../../LeftSidebarCtx'
+import LeftSidebarCtx from '../../LayoutCtx'
 
 const LeftSidebarHeader = (): JSX.Element => {
   const theme = useTheme()

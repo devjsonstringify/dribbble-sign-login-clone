@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useTheme } from '@mui/material/styles'
 import DynamicImage from '../../../components/DynamicImage'
 import Box from '@mui/material/Box'
-import LeftSidebarCtx from '../../LeftSidebarCtx'
+import LeftSidebarCtx from '../../LayoutCtx'
 
 const LeftSidebarContent = (): JSX.Element => {
   const theme = useTheme()

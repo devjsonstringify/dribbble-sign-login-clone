@@ -2,7 +2,7 @@ import * as React from 'react'
 import Box from '@mui/material/Box'
 import LeftSidebarContent from './LeftSidebarContent'
 import LeftSidebarHeader from './LeftSidebarHeader'
-import LeftSidebarCtx from '../LeftSidebarCtx'
+import LeftSidebarCtx from '../LayoutCtx'
 
 const LeftSidebar = (): JSX.Element => {
   const LeftSideCtx = React.useContext(LeftSidebarCtx)
