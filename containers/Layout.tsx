@@ -49,16 +49,3 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
 }
 
 export default Layout
-
-/**
- * @todo
- * 1. set color via global theme, incorrect text color
- */
-
-const LeftBgImage = styled(Box)({
-  backgroundImage: `url(/assets/procrastination.jpg)`,
-  flexGrow: 1,
-  backgroundPosition: 'center',
-  backgroundRepeat: 'no-repeat',
-  backgroundSize: 'contain',
-})
