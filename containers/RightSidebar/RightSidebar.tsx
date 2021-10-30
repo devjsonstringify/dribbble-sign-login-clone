@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Box from '@mui/material/Box'
 import RightSidebarHeader from './RightSidebarHeader'
+import RightSidebarContent from './RightSidebarContent'
 
 const RightSidebar = () => {
   return (
@@ -11,6 +12,7 @@ const RightSidebar = () => {
       }}
     >
       <RightSidebarHeader />
+      <RightSidebarContent />
     </Box>
   )
 }
