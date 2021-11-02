@@ -13,7 +13,8 @@ const LoginInForm = () => {
         <Link
           href="/"
           sx={{
-            color: 'text.secondary',
+            color: 'secondary.main',
+            textDecoration: 'none',
             position: 'absolute',
             top: 0,
             right: 0,
