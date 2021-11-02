@@ -14,7 +14,7 @@ const LoginInForm = () => {
           href="/"
           sx={{
             color: 'secondary.main',
-            textDecoration: 'none',
+            textDecoration: 'underline',
             position: 'absolute',
             top: 0,
             right: 0,

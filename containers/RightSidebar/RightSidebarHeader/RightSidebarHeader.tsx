@@ -7,8 +7,8 @@ import LayoutCtx from '../../LayoutCtx'
 const RightSidebarHeader = () => {
   const LeftSideCtx = React.useContext(LayoutCtx)
   const alreadyMember = LeftSideCtx?.isSignedView
-    ? 'Not a member'
-    : ' Already a member'
+    ? 'Not a member?'
+    : ' Already a member?'
   const buttonText = LeftSideCtx?.isSignedView ? 'Sign up now' : 'Login'
 
   return (
@@ -30,6 +30,7 @@ const RightSidebarHeader = () => {
             sx={{
               fontWeight: '400',
               textTransform: 'inherit',
+              textDecoration: 'underline',
               ':hover': {
                 backgroundColor: 'rgba(0,0,0,0)',
               },
