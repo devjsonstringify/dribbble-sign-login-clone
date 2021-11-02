@@ -30,6 +30,18 @@ const TextField = ({ label, rightText }: TexTFieldProps): JSX.Element => {
         sx={{
           '.MuiOutlinedInput-root': {
             borderRadius: '0.5rem',
+            transition:
+              'background-color 200ms ease, outline 200ms ease, color 200ms ease, box-shadow 200ms ease, -webkit-box-shadow 200ms ease',
+            ':hover': {
+              boxShadow: '0 0 0 4px rgb(234 76 137 / 10%)',
+              '.MuiOutlinedInput-notchedOutline': {
+                border: '1px solid #f3f3f4',
+              },
+              '.MuiOutlinedInput-input': {
+                border: '1px solid #f3f3f4',
+                backgroundColor: 'rgba(0,0,0,0)',
+              },
+            },
           },
           '.MuiOutlinedInput-input': {
             boxSizing: 'border-box',
