@@ -6,6 +6,7 @@ import IconButton from '@mui/material/IconButton'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import LeftSidebarCtx from '../../containers/LayoutCtx'
 import AlreadyMember from '../AlreadyMember'
+import Logo from '../../components/Logo'
 
 const SignedInToDribbble = () => {
   const LeftSideCtx = React.useContext(LeftSidebarCtx)
@@ -16,6 +17,17 @@ const SignedInToDribbble = () => {
 
   return (
     <Box>
+      <Box
+        sx={{
+          display: { xs: 'block', md: 'none' },
+          height: 'auto',
+          minWidth: '3.75rem',
+          maxWidth: '5.625rem',
+          marginBottom: '1.875rem',
+        }}
+      >
+        <Logo ariaLabel="logo-right-sidebar" role="image" />
+      </Box>
       <AlreadyMember />
       <Box
         sx={{
