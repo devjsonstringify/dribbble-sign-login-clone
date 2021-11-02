@@ -14,6 +14,9 @@ const SignedInForm = () => {
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
           gridColumnGap: '1rem',
+          '> .MuiBox-root': {
+            mb: '0',
+          },
         }}
       >
         <TextField label="Name" />
@@ -30,6 +33,9 @@ const SignedInForm = () => {
             pl: '0',
             ':hover': {
               backgroundColor: 'rgba(0,0,0,0)',
+            },
+            '&.Mui-checked': {
+              color: '#4f3cc9',
             },
           }}
         />
