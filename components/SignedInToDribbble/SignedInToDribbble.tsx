@@ -59,6 +59,11 @@ const SignedInToDribbble = () => {
         />
         <IconButton
           sx={{
+            ':hover': {
+              '.MuiSvgIcon-root': {
+                fill: '#1d9bf0',
+              },
+            },
             border: '2px solid rgba(0,0,0,0)',
             backgroundColor: '#f2f2f2',
             borderRadius: '20%',
