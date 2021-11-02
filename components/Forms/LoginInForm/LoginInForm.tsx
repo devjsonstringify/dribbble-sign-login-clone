@@ -33,6 +33,7 @@ const LoginInForm = () => {
           textTransform: 'inherit',
           minWidth: '12.5rem',
           marginTop: '0.635rem',
+          width: { xs: '100%', md: 'auto' },
         }}
       >
         Sign In
