@@ -1,13 +1,13 @@
 import React from 'react'
 import Box from '@mui/material/Box'
-import MuiTextField from '@mui/material/TextField'
+import MuiTextField, { TextFieldProps } from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
 
 type TexTFieldProps = {
   label?: string
 }
 
-const TextField = ({ label }: TexTFieldProps): JSX.Element => {
+const TextField = ({ label, ...restProps }: TextFieldProps): JSX.Element => {
   return (
     <Box sx={{ margin: '0.75rem 0 1rem' }}>
       <Box>
@@ -21,6 +21,7 @@ const TextField = ({ label }: TexTFieldProps): JSX.Element => {
       </Box>
       <MuiTextField
         fullWidth
+        {...restProps}
         sx={{
           '.MuiOutlinedInput-root': {
             borderRadius: '0.5rem',
