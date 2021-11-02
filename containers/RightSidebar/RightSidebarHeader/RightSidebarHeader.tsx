@@ -16,7 +16,7 @@ const RightSidebarHeader = () => {
       <Box
         sx={{
           display: 'flex',
-          justifyContent: 'flex-end',
+          justifyContent: { xs: 'center', md: 'flex-end' },
           padding: '1.563rem 1.563rem 0',
         }}
       >

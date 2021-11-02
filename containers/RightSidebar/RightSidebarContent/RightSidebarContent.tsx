@@ -4,6 +4,7 @@ import Divider from '@mui/material/Divider'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import SignedInToDribbble from '../../../components/SignedInToDribbble'
+import RightSidebarHeader from '../RightSidebarHeader'
 import Forms from '../../../components/Forms'
 
 const RightSidebarContent = () => {
@@ -15,6 +16,9 @@ const RightSidebarContent = () => {
           <Divider>Or</Divider>
         </Box>
         <Forms />
+        <Box sx={{ display: { xs: 'block', md: 'none' } }}>
+          <RightSidebarHeader />
+        </Box>
       </Container>
     </Box>
   )

@@ -11,7 +11,9 @@ const RightSidebar = () => {
         height: '100%',
       }}
     >
-      <RightSidebarHeader />
+      <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+        <RightSidebarHeader />
+      </Box>
       <RightSidebarContent />
     </Box>
   )
