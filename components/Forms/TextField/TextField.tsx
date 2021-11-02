@@ -5,14 +5,9 @@ import Typography from '@mui/material/Typography'
 
 type TexTFieldProps = {
   label?: string
-  rightText?: JSX.Element
 }
 
-const TextField = ({ label, rightText }: TexTFieldProps): JSX.Element => {
-  const rightTextStyles = {
-    display: rightText ? 'flex' : 'block',
-    justifyContent: rightText ? 'space-between' : 'unset',
-  }
+const TextField = ({ label }: TexTFieldProps): JSX.Element => {
   return (
     <Box sx={{ margin: '0.75rem 0 1rem' }}>
       <Box>
@@ -23,7 +18,6 @@ const TextField = ({ label, rightText }: TexTFieldProps): JSX.Element => {
         >
           {label}
         </Typography>
-        {rightText && rightText}
       </Box>
       <MuiTextField
         fullWidth
