@@ -11,7 +11,7 @@ const RightSidebarContent = () => {
     <Box sx={{ display: 'flex', height: '100%' }}>
       <Container maxWidth="sm" sx={{ margin: 'auto' }}>
         <SignedInToDribbble />
-        <Box sx={{ my: '2rem' }}>
+        <Box sx={{ m: '1.875rem 3.75rem  0' }}>
           <Divider>Or</Divider>
         </Box>
         <Forms />

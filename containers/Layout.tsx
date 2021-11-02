@@ -30,12 +30,12 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
 
   return (
     <LayoutCtx.Provider value={LeftSidebarAPI}>
-      <Box sx={{ height: '100%' }}>
+      <Box sx={{ height: '100%', overflow: 'hidden' }}>
         <Grid container sx={{ height: '100%' }}>
           <Grid
             item
             md={3}
-            sx={{ display: { sm: 'none', md: 'block' }, height: '100%' }}
+            sx={{ display: { xs: 'none', md: 'block' }, height: '100%' }}
           >
             <LeftSidebar />
           </Grid>
