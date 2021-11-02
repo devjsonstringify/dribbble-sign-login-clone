@@ -6,7 +6,7 @@ import Link from '@mui/material/Link'
 const TermsAndCondition = () => {
   return (
     <Box>
-      <Typography>
+      <Typography variant="body2">
         Creating an account means you’re okay with our{' '}
         <Link underline="none" color="secondary.main">
           {' '}
