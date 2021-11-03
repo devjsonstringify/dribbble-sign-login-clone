@@ -3,10 +3,13 @@ import Box from '@mui/material/Box'
 import Link from '@mui/material/Link'
 import Button from '@mui/material/Button'
 import Checkbox, { CheckboxProps } from '@mui/material/Checkbox'
+import { useTheme } from '@mui/material/styles'
 import TextField from '../TextField'
 import TermsAndCondition from '../../TermsAndCondition'
 
 const SignUpForm = () => {
+  const theme = useTheme()
+
   return (
     <Box>
       <Box
@@ -28,7 +31,7 @@ const SignUpForm = () => {
         <Checkbox
           inputProps={{ 'aria-label': 'Checkbox demo' }}
           sx={{
-            color: '#6e6d7a',
+            color: theme.dribbleAccents.textGrayA,
             py: '0',
             pl: '0',
             ':hover': {

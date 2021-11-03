@@ -2,11 +2,16 @@ import * as React from 'react'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Link from '@mui/material/Link'
+import { useTheme } from '@mui/material/styles'
 
 const TermsAndCondition = () => {
+  const theme = useTheme()
   return (
     <Box>
-      <Typography variant="body2" sx={{ color: '#6e6d7a' }}>
+      <Typography
+        variant="body2"
+        sx={{ color: theme.dribbleAccents.textGrayA }}
+      >
         Creating an account means you’re okay with our{' '}
         <Link underline="none" color="secondary.main">
           {' '}
