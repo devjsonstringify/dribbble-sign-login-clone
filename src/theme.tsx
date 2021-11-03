@@ -9,6 +9,7 @@ declare module '@mui/material/styles' {
       textPink: string
       yellow: string
       textYellow: string
+      textGrayA: string
     }
   }
   // allow configuration using `createTheme`
@@ -19,6 +20,7 @@ declare module '@mui/material/styles' {
       textPink?: string
       yellow?: string
       textYellow?: string
+      textGrayA?: string
     }
   }
 }
@@ -42,6 +44,7 @@ const theme = createTheme({
     textPink: '#865c6c',
     yellow: '#f2d184',
     textYellow: '#866118',
+    textGrayA: '#6e6d7a',
   },
 })
 
