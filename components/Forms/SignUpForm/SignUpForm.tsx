@@ -6,7 +6,7 @@ import Checkbox, { CheckboxProps } from '@mui/material/Checkbox'
 import TextField from '../TextField'
 import TermsAndCondition from '../../TermsAndCondition'
 
-const SignedInForm = () => {
+const SignUpForm = () => {
   return (
     <Box>
       <Box
@@ -61,4 +61,4 @@ const SignedInForm = () => {
   )
 }
 
-export default SignedInForm
+export default SignUpForm
