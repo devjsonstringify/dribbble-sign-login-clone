@@ -26,9 +26,9 @@ const SignedInForm = () => {
       <TextField label="Password" placeholder="6+ characters" />
       <Box sx={{ display: 'flex', alignItems: 'baseline' }}>
         <Checkbox
-          color="default"
           inputProps={{ 'aria-label': 'Checkbox demo' }}
           sx={{
+            color: '#6e6d7a',
             py: '0',
             pl: '0',
             ':hover': {
