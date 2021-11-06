@@ -1,13 +1,16 @@
-import React from 'react'
+import * as React from 'react'
 import Box from '@mui/material/Box'
 import MuiTextField, { TextFieldProps } from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
 
-type TexTFieldProps = {
+type Props = {
   label?: string
-}
+} & TextFieldProps
 
-const TextField = ({ label, ...restProps }: TextFieldProps): JSX.Element => {
+type InputProps = HTMLInputElement
+
+const TextField = React.forwardRef<InputProps, Props>((props, ref) => {
+  const { label, ...rest } = props
   return (
     <Box sx={{ margin: '0.75rem 0 1rem' }}>
       <Box>
@@ -20,8 +23,9 @@ const TextField = ({ label, ...restProps }: TextFieldProps): JSX.Element => {
         </Typography>
       </Box>
       <MuiTextField
+        ref={ref}
         fullWidth
-        {...restProps}
+        {...rest}
         sx={{
           '.MuiOutlinedInput-root': {
             borderRadius: '0.5rem',
@@ -50,6 +54,6 @@ const TextField = ({ label, ...restProps }: TextFieldProps): JSX.Element => {
       />
     </Box>
   )
-}
+})
 
 export default TextField
