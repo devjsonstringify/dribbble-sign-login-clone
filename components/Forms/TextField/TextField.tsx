@@ -9,7 +9,10 @@ type Props = {
 
 type InputProps = HTMLInputElement
 
-const TextField = React.forwardRef<InputProps, Props>((props, ref) => {
+const TextField = React.forwardRef<
+  InputProps,
+  Omit<Props, 'color' | 'variant'>
+>((props, ref) => {
   const { label, ...rest } = props
   return (
     <Box sx={{ margin: '0.75rem 0 1rem' }}>
