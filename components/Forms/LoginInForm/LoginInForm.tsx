@@ -1,10 +1,12 @@
 import * as React from 'react'
+import { useRouter } from 'next/router'
 import Box from '@mui/material/Box'
 import Link from '@mui/material/Link'
 import Typography from '@mui/material/Typography'
-import { useForm, Controller } from 'react-hook-form'
+import { useForm, Controller, Resolver } from 'react-hook-form'
 import TextField from '../TextField'
 import Button from '@mui/material/Button'
+import { sleep } from '../../../utils/helper'
 
 type FormValues = {
   username: string
@@ -12,23 +14,40 @@ type FormValues = {
 }
 
 const LoginInForm = () => {
-  const { control, handleSubmit } = useForm<FormValues>({
+  const router = useRouter()
+  const redirectToDribbbleSignInScreen = 'https://dribbble.com/session/new'
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>({
     defaultValues: {
       username: '',
       password: '',
     },
   })
 
-  const onSubmit = (values: unknown) => alert(JSON.stringify(values))
+  const onSubmit = handleSubmit((values: FormValues) => {
+    sleep(1000)
+    if (values) {
+      // redirect to actual dribbble site
+      router.push(redirectToDribbbleSignInScreen)
+    }
+  })
 
   return (
     <Box>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={onSubmit}>
         <Controller
           control={control}
           name="username"
+          rules={{ required: true }}
           render={({ field }) => (
-            <TextField {...field} label="Username or Email Address" />
+            <TextField
+              {...field}
+              label="Username or Email Address"
+              error={Boolean(errors.username)}
+            />
           )}
         />
         <Box sx={{ position: 'relative' }}>
@@ -47,7 +66,14 @@ const LoginInForm = () => {
           <Controller
             control={control}
             name="password"
-            render={({ field }) => <TextField {...field} label="Password" />}
+            rules={{ required: true }}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                label="Password"
+                error={Boolean(errors.password)}
+              />
+            )}
           />
         </Box>
         <Button
@@ -71,3 +97,5 @@ const LoginInForm = () => {
 }
 
 export default LoginInForm
+
+// 09359183021 -
