@@ -3,8 +3,9 @@ import Box from '@mui/material/Box'
 import { styled, useTheme } from '@mui/material/styles'
 import Grid from '@mui/material/Grid'
 import LeftSidebar from './LeftSidebar/LeftSidebar'
-import LayoutCtx from './LayoutCtx'
+import LayoutCtx, { IHasError } from './LayoutCtx'
 import RightSidebar from './RightSidebar'
+import HeaderNotification from '../components/Notifications/HeaderNotification'
 
 type LayoutProps = {
   children: React.ReactNode
@@ -12,6 +13,10 @@ type LayoutProps = {
 const Layout = ({ children }: LayoutProps): JSX.Element => {
   const theme = useTheme()
   const [isSignedView, setIsSignedView] = React.useState<boolean>(true)
+  const [hasError, setHasError] = React.useState<IHasError>({
+    isError: false,
+    message: '',
+  })
 
   const accentText = isSignedView
     ? theme?.dribbleAccents?.textPink
@@ -22,14 +27,33 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
     : theme?.dribbleAccents?.yellow
 
   const onHandleToggleView = () => setIsSignedView((prev) => !prev)
+  const onHandleError = (value: IHasError) =>
+    setHasError((prev) => ({
+      ...prev,
+      isError: value.isError,
+      message: value.message,
+    }))
 
   const LeftSidebarAPI = React.useMemo(
-    () => ({ onHandleToggleView, accentText, accentBg, isSignedView }),
-    [isSignedView]
+    () => ({
+      onHandleToggleView,
+      accentText,
+      accentBg,
+      isSignedView,
+      onHandleError,
+      hasError,
+    }),
+    [isSignedView, hasError]
   )
 
   return (
     <LayoutCtx.Provider value={LeftSidebarAPI}>
+      {hasError.isError && (
+        <HeaderNotification
+          isError={hasError.isError}
+          message={hasError.message}
+        />
+      )}
       <Box sx={{ height: '100%', overflow: 'hidden' }}>
         <Grid container sx={{ height: '100%' }}>
           <Grid

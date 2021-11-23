@@ -7,6 +7,7 @@ import { useForm, Controller, Resolver } from 'react-hook-form'
 import TextField from '../TextField'
 import Button from '@mui/material/Button'
 import { sleep } from '../../../utils/helper'
+import LayoutCtx from '../../../containers/LayoutCtx'
 
 type FormValues = {
   username: string
@@ -14,6 +15,8 @@ type FormValues = {
 }
 
 const LoginInForm = () => {
+  const layoutAPI = React.useContext(LayoutCtx)
+
   const router = useRouter()
   const redirectToDribbbleSignInScreen = 'https://dribbble.com/session/new'
   const {
