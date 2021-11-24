@@ -31,8 +31,13 @@ const LoginInForm = () => {
   })
 
   const onSubmit = handleSubmit((values: FormValues) => {
-    sleep(1000)
-    if (values) {
+    const result = window.prompt(
+      `Form login details "\n"` +
+        JSON.stringify(values, null, 2) +
+        `"\n" Would you like to redirect to actual dribbble.com site?  type "Y" otherwise click cancel.`
+    )
+
+    if (typeof result === 'string' && result.toLocaleLowerCase() === 'y') {
       // redirect to actual dribbble site
       router.push(redirectToDribbbleSignInScreen)
     }
