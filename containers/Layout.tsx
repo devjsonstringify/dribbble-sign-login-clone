@@ -6,6 +6,7 @@ import LeftSidebar from './LeftSidebar/LeftSidebar'
 import LayoutCtx, { IHasError } from './LayoutCtx'
 import RightSidebar from './RightSidebar'
 import HeaderNotification from '../components/Notifications/HeaderNotification'
+import ReminderNotification from '../components/Notifications/ReminderNotification'
 
 type LayoutProps = {
   children: React.ReactNode
@@ -13,6 +14,7 @@ type LayoutProps = {
 const Layout = ({ children }: LayoutProps): JSX.Element => {
   const theme = useTheme()
   const [isSignedView, setIsSignedView] = React.useState<boolean>(true)
+  const [openReminder, setOpenReminder] = React.useState<boolean>(true)
   const [hasError, setHasError] = React.useState<IHasError>({
     isError: false,
     message: '',
@@ -27,6 +29,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
     : theme?.dribbleAccents?.yellow
 
   const onHandleToggleView = () => setIsSignedView((prev) => !prev)
+  const onHandleOpenReminder = () => setOpenReminder((prev) => !prev)
   const onHandleError = (value: IHasError) =>
     setHasError((prev) => ({
       ...prev,
@@ -41,10 +44,14 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
       accentBg,
       isSignedView,
       onHandleError,
+      onHandleOpenReminder,
       hasError,
+      openReminder,
     }),
-    [isSignedView, hasError]
+    [isSignedView, hasError, openReminder]
   )
+
+  console.log(openReminder)
 
   return (
     <LayoutCtx.Provider value={LeftSidebarAPI}>
@@ -54,6 +61,8 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
           message={hasError.message}
         />
       )}
+      {openReminder && <ReminderNotification />}
+
       <Box sx={{ height: '100%', overflow: 'hidden' }}>
         <Grid container sx={{ height: '100%' }}>
           <Grid

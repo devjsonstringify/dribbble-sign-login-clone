@@ -9,8 +9,10 @@ export interface LayoutCtxInterface {
   accentBg: string
   isSignedView: boolean
   hasError?: IHasError
+  openReminder: boolean
   onHandleToggleView: () => void
   onHandleError: (value: IHasError) => void
+  onHandleOpenReminder: () => void
 }
 
 const LayoutCtx = React.createContext<LayoutCtxInterface | null>(null)
