@@ -44,12 +44,13 @@ const LoginInForm = () => {
         <Controller
           control={control}
           name="username"
-          rules={{ required: true }}
+          rules={{ required: 'Email address or username is required' }}
           render={({ field }) => (
             <TextField
               {...field}
               label="Username or Email Address"
               error={Boolean(errors.username)}
+              helperText={errors.username?.message}
             />
           )}
         />
@@ -69,12 +70,13 @@ const LoginInForm = () => {
           <Controller
             control={control}
             name="password"
-            rules={{ required: true }}
+            rules={{ required: 'Password is required' }}
             render={({ field }) => (
               <TextField
                 {...field}
                 label="Password"
                 error={Boolean(errors.password)}
+                helperText={errors.password?.message}
               />
             )}
           />
