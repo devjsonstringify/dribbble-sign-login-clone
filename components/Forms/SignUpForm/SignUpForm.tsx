@@ -120,10 +120,11 @@ const SignUpForm = () => {
             render={({ field }) => (
               <Checkbox
                 {...field}
-                required
                 inputProps={{ 'aria-label': 'Terms and conditions' }}
                 sx={{
-                  color: theme.dribbleAccents.textGrayA,
+                  color: errors.isAcceptTerms
+                    ? '#ff1744'
+                    : theme.dribbleAccents.textGrayA,
                   py: '0',
                   pl: '0',
                   ':hover': {
