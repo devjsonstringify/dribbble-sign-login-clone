@@ -47,7 +47,7 @@ const TextField = React.forwardRef<
           },
           '.MuiOutlinedInput-input': {
             boxSizing: 'border-box',
-            backgroundColor: '#f3f3f4',
+            backgroundColor: '#fff',
             border: '1px solid #f3f3f4',
 
             height: '2.5rem',
