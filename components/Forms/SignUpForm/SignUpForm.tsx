@@ -2,11 +2,15 @@ import * as React from 'react'
 import Box from '@mui/material/Box'
 import Link from '@mui/material/Link'
 import Button from '@mui/material/Button'
+import List from '@mui/material/List'
+import ListItem from '@mui/material/ListItem'
+import Typography from '@mui/material/Typography'
 import Checkbox, { CheckboxProps } from '@mui/material/Checkbox'
 import { useTheme } from '@mui/material/styles'
 import { useForm, Controller, Resolver } from 'react-hook-form'
 import TextField from '../TextField'
 import TermsAndCondition from '../../TermsAndCondition'
+import LayoutCtx from '../../../containers/LayoutCtx'
 
 type FormValues = {
   name: string
@@ -17,6 +21,7 @@ type FormValues = {
 }
 
 const SignUpForm = () => {
+  const layoutAPI = React.useContext(LayoutCtx)
   const theme = useTheme()
 
   const {
@@ -40,6 +45,14 @@ const SignUpForm = () => {
 
   return (
     <Box>
+      {Object.keys(errors) && (
+        <List>
+          {Object.values(errors).map(({ message }) => (
+            <ListItem sx={{ color: '#ff1744', py: '0' }}>{message}</ListItem>
+          ))}
+        </List>
+      )}
+
       <form onSubmit={onSubmit}>
         <Box
           sx={{
@@ -57,7 +70,7 @@ const SignUpForm = () => {
           <Controller
             control={control}
             name="name"
-            rules={{ required: 'Name is required' }}
+            rules={{ required: `Name can't be blank` }}
             render={({ field }) => (
               <TextField
                 {...field}
@@ -71,7 +84,7 @@ const SignUpForm = () => {
           <Controller
             control={control}
             name="username"
-            rules={{ required: 'Username is required' }}
+            rules={{ required: `Username can't be blank` }}
             render={({ field }) => (
               <TextField
                 {...field}
@@ -85,7 +98,7 @@ const SignUpForm = () => {
         <Controller
           control={control}
           name="email"
-          rules={{ required: 'Email is required' }}
+          rules={{ required: `Email can't be blank` }}
           render={({ field }) => (
             <TextField
               {...field}
@@ -100,7 +113,7 @@ const SignUpForm = () => {
         <Controller
           control={control}
           name="password"
-          rules={{ required: 'Email address or password is required' }}
+          rules={{ required: `Email address or password can't be blank` }}
           render={({ field }) => (
             <TextField
               {...field}
@@ -116,7 +129,7 @@ const SignUpForm = () => {
           <Controller
             control={control}
             name="isAcceptTerms"
-            rules={{ required: 'Terms and condition is required' }}
+            rules={{ required: `Terms and condition can't be blank` }}
             render={({ field }) => (
               <Checkbox
                 {...field}
