@@ -43,6 +43,21 @@ const LoginInForm = () => {
     }
   })
 
+  React.useEffect(() => {
+    if (Object.keys(errors).length > 0) {
+      layoutAPI?.onHandleError({
+        isError: true,
+        message:
+          'We couldn’t find an account matching the username and password you entered. Please check your username and password and try again.',
+      })
+    } else {
+      layoutAPI?.onHandleError({
+        isError: false,
+        message: '',
+      })
+    }
+  }, [errors])
+
   return (
     <Box>
       <form onSubmit={onSubmit}>
