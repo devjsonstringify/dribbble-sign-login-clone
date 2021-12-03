@@ -45,6 +45,7 @@ const SignUpForm = () => {
 
   return (
     <Box>
+      {/* // @TODO convert Object.values to typescript generics */}
       {Object.keys(errors) && (
         <List>
           {Object.values(errors).map(({ message }) => (
