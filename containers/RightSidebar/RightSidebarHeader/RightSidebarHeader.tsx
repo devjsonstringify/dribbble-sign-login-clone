@@ -26,7 +26,13 @@ const RightSidebarHeader = () => {
             color="secondary"
             disableRipple
             variant="text"
-            onClick={LeftSideCtx?.onHandleToggleView}
+            onClick={() => {
+              LeftSideCtx?.onHandleToggleView()
+              LeftSideCtx?.onHandleError({
+                isError: false,
+                message: '',
+              })
+            }}
             sx={{
               fontWeight: '400',
               textTransform: 'inherit',
