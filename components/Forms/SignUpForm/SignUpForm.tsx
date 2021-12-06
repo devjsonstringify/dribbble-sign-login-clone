@@ -79,7 +79,7 @@ const SignUpForm = () => {
           <Controller
             control={control}
             name="name"
-            rules={{ required: `Name can't be blank` }}
+            rules={{ required: `⚠ Name can't be blank` }}
             render={({ field }) => (
               <TextField
                 {...field}
@@ -93,7 +93,7 @@ const SignUpForm = () => {
           <Controller
             control={control}
             name="username"
-            rules={{ required: `Username can't be blank` }}
+            rules={{ required: `⚠ Username can't be blank` }}
             render={({ field }) => (
               <TextField
                 {...field}
@@ -107,7 +107,7 @@ const SignUpForm = () => {
         <Controller
           control={control}
           name="email"
-          rules={{ required: `Email can't be blank` }}
+          rules={{ required: `⚠ Email can't be blank` }}
           render={({ field }) => (
             <TextField
               {...field}
@@ -122,7 +122,7 @@ const SignUpForm = () => {
         <Controller
           control={control}
           name="password"
-          rules={{ required: `Email address or password can't be blank` }}
+          rules={{ required: `⚠ Email address or password can't be blank` }}
           render={({ field }) => (
             <TextField
               {...field}
@@ -138,7 +138,7 @@ const SignUpForm = () => {
           <Controller
             control={control}
             name="isAcceptTerms"
-            rules={{ required: `Terms and condition can't be blank` }}
+            rules={{ required: `⚠ Terms and condition can't be blank` }}
             render={({ field }) => (
               <Checkbox
                 {...field}
