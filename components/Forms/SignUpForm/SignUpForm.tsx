@@ -48,8 +48,13 @@ const SignUpForm = () => {
       {/* // @TODO convert Object.values to typescript generics */}
       {Object.keys(errors) && (
         <List>
-          {Object.values(errors).map(({ message }) => (
-            <ListItem sx={{ color: '#ff1744', py: '0' }}>{message}</ListItem>
+          {Object.values(errors).map(({ message }, index) => (
+            <ListItem
+              key={`${index}_${message}`}
+              sx={{ color: '#ff1744', py: '0' }}
+            >
+              {message}
+            </ListItem>
           ))}
         </List>
       )}
