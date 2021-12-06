@@ -6,6 +6,7 @@ import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import Typography from '@mui/material/Typography'
 import Checkbox, { CheckboxProps } from '@mui/material/Checkbox'
+import Grow from '@mui/material/Grow'
 import { useTheme } from '@mui/material/styles'
 import { useForm, Controller, Resolver } from 'react-hook-form'
 import TextField from '../TextField'
@@ -47,16 +48,18 @@ const SignUpForm = () => {
     <Box>
       {/* // @TODO convert Object.values to typescript generics */}
       {Object.keys(errors) && (
-        <List>
-          {Object.values(errors).map(({ message }, index) => (
-            <ListItem
-              key={`${index}_${message}`}
-              sx={{ color: '#ff1744', py: '0' }}
-            >
-              {message}
-            </ListItem>
-          ))}
-        </List>
+        <Grow in={!!errors}>
+          <List>
+            {Object.values(errors).map(({ message }, index) => (
+              <ListItem
+                key={`${index}_${message}`}
+                sx={{ color: '#ff1744', py: '0' }}
+              >
+                {message}
+              </ListItem>
+            ))}
+          </List>
+        </Grow>
       )}
 
       <form onSubmit={onSubmit}>
